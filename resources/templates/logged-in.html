@@ -1,0 +1,23 @@
+<html>
+Welcome {{username}}!
+<form action = "create-movie" method = "post">
+    <input type = "text" placeholder = "Movie Name" name = "moviename"/>
+    <select name = "genre">
+        <option value = "">-</option>
+        <option value = "Horror">Horror</option>
+        <option value = "Action/Adventure" >Action/Adventure</option>
+        <option value = "Comedy">Comedy</option>
+        <option value = "Documentary">Documentary</option>
+        <option value ="Other">Other</option>
+    </select>
+</form>
+<form action = "logout" method= "post"/>
+<button type= "submit">Logout</button>
+</form>
+
+</form>
+{{#films}}
+{{id}}. - {{title}} - {{genre}}<a href="/edit-post?id={{id}}"> Edit </a> <a href="/delete-movie?id={{id}}">Delete</a><br>
+{{/films}}
+</body>
+</html>
