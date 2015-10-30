@@ -14,18 +14,25 @@ public class Main {
                 "/",
                 ((request, response) -> {
                     Session session = request.session();
+
+                    HashMap m = new HashMap();
                     String username = session.attribute("username");
+                    String id = session.attribute("id");
+                    String title = session.attribute("title");
+                    String genre = session.attribute("genre");
+                    m.put("films",films);
+                    m.put("id",id);
+                    m.put("title",title);
+                    m.put("genre", genre);
 
                     if (username == null) {
-                        return new ModelAndView(new HashMap<>(), "not-logged-in.html");
-
+                        return new ModelAndView(m, "not-logged-in.html");
                     } else {
-                        HashMap m = new HashMap();
                         m.put("username", username);
                         m.put("films", films);
-                        return new ModelAndView(m, "logged-in.html");
-                    }
 
+                        return new ModelAndView(m,"logged-in.html");
+                    }
                 }),
                 new MustacheTemplateEngine()
 
@@ -107,5 +114,6 @@ public class Main {
                 });
     }
 }
+
 // try to make it so that they only show the posts of the person who is logged in.
-// try to get more detailed in general. Genres, etc.
+//Paging!
