@@ -85,6 +85,8 @@ public class Main {
                     String title = session.attribute("title");
                     String genre = session.attribute("genre");
 
+                    m.put("films",selectEntries(conn));
+
                     m.put("id",id);
                     m.put("title",title);
                     m.put("genre", genre);
@@ -155,7 +157,7 @@ public class Main {
                     try {
                         String id = request.queryParams("id");
                         int idNum = Integer.valueOf(id);
-                        Movies movie = films.get(idNum - 1);
+                        Movies movie = selectEntry(conn, idNum);
                         movie.title = request.queryParams("editpost");
                     } catch (Exception e) {
 
