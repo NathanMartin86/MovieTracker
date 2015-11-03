@@ -14,10 +14,8 @@ Welcome {{username}}!
 <form action = "logout" method= "post"/>
 <button type= "submit">Logout</button>
 </form>
-
-</form>
 {{#films}}
-{{id}}. - {{title}} - {{genre}}<a href="/edit-post?id={{id}}"> Edit </a> <a href="/delete-movie?id={{id}}">Delete</a><br>
+{{id}}. - {{title}} - {{genre}}{{}#authorized]]}<a href="/edit-post?id={{id}}"> Edit </a> <a href="/delete-movie?id={{id}}">Delete</a>{{/authorized}}<br>
 {{/films}}
 </body>
 </html>
